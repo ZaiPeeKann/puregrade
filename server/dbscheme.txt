@@ -1,0 +1,82 @@
+table users { // Just app user
+  id int
+  email varchar
+  password varchar
+  nickname varchar
+  avatar varchar
+  banned boolean
+  ban_reason text
+  status tinyint
+  user_status varchar
+  created_at datetime
+  last_visit datetime
+}
+
+table roles { // User role ("ADMIN", "USER", "OWNER"...)
+  id int
+  title varchar
+}
+
+table products {
+  id int
+  title varchar
+  image varchar
+  type int
+}
+
+table reviews { // Users and publishers rewiew
+  id int
+  body text
+  author int
+  created_at datetime
+  updated_at datetime
+}
+
+table comments { // Comments to products and other comments'
+  id int
+  body text
+  user_id int
+  comment_id int
+  created_at datetime
+  updated_at datetime
+}
+
+table ratings { // Rating products (1-100)
+  id int
+  value int
+  user_id int
+  product_id int
+}
+
+table platforms { // Plarform: PC, PS4, PS5, Mobile, XBox...
+  id int
+  title varchar
+}
+
+table genres { // RPG, FPS, Adventure, Drama, Comedy
+  id int
+  title varchar
+}
+
+table types { // Games, Movies, Books, Anime, Manga, Serials...
+  id int
+  title varchar
+}
+
+table product_genres {
+  id int
+  product_id int
+  genres_id int
+}
+
+table product_platform {
+  id int
+  product_id int
+  platform_id int
+}
+
+table user_role {
+  id int
+  user_id int
+  role_id int
+}

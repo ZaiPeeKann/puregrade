@@ -1,0 +1,17 @@
+services:
+	backend:
+		image: node:16-alpine
+		command: sh -c "yarn i && npm run dev"
+		ports:
+			- 3000:3000
+		working_dir: /server
+		volumes:
+			- ./:/server
+		environment:
+			MYSQL_HOST: mysql
+			MYSQL_USER: root
+			MYSQL_PASSWORD: secret
+			MYSQL_DB: todos
+	db:
+		image: postgres:14
+		

@@ -2,16 +2,18 @@ version: '3.9'
 
 services:
   server:
+    name: server
     build: ./server
     ports:
       - 5000:5000
   db:
+    name: db
     image: postgres:14
     user: 'postgres'
     volumes:
       - database:/var/lib/postgresql/data
     ports:
-      - 4321:4321
+      - 5432:5432
     environment:
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'root'
